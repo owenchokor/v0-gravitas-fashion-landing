@@ -1,6 +1,5 @@
 'use client'
-
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useRef } from 'react'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import type { Product } from '@/lib/products'
@@ -13,6 +12,7 @@ interface ProductCardProps {
 
 export function ProductCard({ product, onQuickAdd }: ProductCardProps) {
   const [currentImage, setCurrentImage] = useState(0)
+  const touchStartX = useRef(0)
 
   const nextImage = useCallback(
     (e: React.MouseEvent) => {
@@ -32,9 +32,30 @@ export function ProductCard({ product, onQuickAdd }: ProductCardProps) {
     [product.images.length]
   )
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    const diff = touchStartX.current - e.changedTouches[0].clientX
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) {
+        setCurrentImage((prev) => (prev + 1) % product.images.length)
+      } else {
+        setCurrentImage((prev) =>
+          prev === 0 ? product.images.length - 1 : prev - 1
+        )
+      }
+    }
+  }
+
   return (
     <div className="group cursor-pointer">
-      <div className="relative aspect-[3/4] overflow-hidden bg-secondary">
+      <div
+        className="relative aspect-[3/4] overflow-hidden bg-secondary"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         {product.images.map((img, i) => (
           <Image
             key={img}
@@ -48,7 +69,6 @@ export function ProductCard({ product, onQuickAdd }: ProductCardProps) {
             priority={i === 0}
           />
         ))}
-
         {/* Carousel navigation arrows */}
         <button
           onClick={prevImage}
@@ -64,7 +84,6 @@ export function ProductCard({ product, onQuickAdd }: ProductCardProps) {
         >
           <ChevronRight className="size-4" strokeWidth={1.5} />
         </button>
-
         {/* Image indicators */}
         <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
           {product.images.map((_, i) => (
@@ -83,7 +102,6 @@ export function ProductCard({ product, onQuickAdd }: ProductCardProps) {
             />
           ))}
         </div>
-
         {/* Quick Add overlay */}
         <div className="absolute inset-0 flex items-end justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none">
           <button
