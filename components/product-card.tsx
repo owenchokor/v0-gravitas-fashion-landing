@@ -42,7 +42,7 @@ export function ProductCard({ product, onQuickAdd }: ProductCardProps) {
             alt={`${product.name} - image ${i + 1}`}
             fill
             className={`object-cover transition-all duration-700 ${
-              i === currentImage ? 'opacity-100 scale-100 z-10' : 'opacity-0 scale-105 z-0'
+              i === currentImage ? 'opacity-100 scale-100' : 'opacity-0 scale-105'
             }`}
             sizes="(max-width: 768px) 100vw, 33vw"
             priority={i === 0}
