@@ -28,7 +28,7 @@ export function Footer() {
             Contact
           </a>
           <a
-            href="https://instagram.com"
+            href="https://instagram.com/gravitas_official"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground hover:text-foreground transition-colors duration-300"
@@ -52,7 +52,7 @@ export function Footer() {
       </div>
       <div className="mx-auto mt-10 max-w-6xl text-center md:text-left">
         <p className="text-xs text-muted-foreground">
-          &copy; 2025 GRAVITAS. All rights reserved.
+          &copy; 2026 GRAVITAS. All rights reserved.
         </p>
       </div>
     </footer>
