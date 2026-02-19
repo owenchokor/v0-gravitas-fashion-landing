@@ -3,64 +3,49 @@ export interface Product {
   name: string
   price: number
   description: string
-  image: string
+  images: string[]
   sizes: string[]
 }
 
 export const products: Product[] = [
   {
-    id: 'structured-overcoat',
-    name: 'Structured Overcoat',
-    price: 890000,
+    id: 'gravity-grey',
+    name: 'GRAVITY GREY.',
+    price: 150000,
     description:
-      'Architectural shoulders, clean lines. A coat that enters the room before you do. Constructed from Italian double-faced wool.',
-    image: '/images/structured-overcoat.jpg',
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+      'Architectural shoulders, clean lines. Constructed from Italian double-faced wool with a muted grey palette.',
+    images: [
+      '/images/gravity-grey-1.jpg',
+      '/images/gravity-grey-2.jpg',
+      '/images/gravity-grey-3.jpg',
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
   },
   {
-    id: 'minimal-turtleneck',
-    name: 'Minimal Turtleneck',
-    price: 320000,
+    id: 'orbit-ecru',
+    name: 'ORBIT ECRU.',
+    price: 150000,
     description:
-      'The quietest luxury. Mongolian cashmere, seamless construction. Silence has never felt this soft.',
-    image: '/images/minimal-turtleneck.jpg',
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+      'Fluid linen-blend. Falls without trying. For those who understand that ease is earned.',
+    images: [
+      '/images/orbit-ecru-1.jpg',
+      '/images/orbit-ecru-2.jpg',
+      '/images/orbit-ecru-3.jpg',
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
   },
   {
-    id: 'tapered-trousers',
-    name: 'Tapered Trousers',
-    price: 420000,
+    id: 'event-black',
+    name: 'EVENT BLACK.',
+    price: 150000,
     description:
-      'Precision-cut from Japanese wool crepe. The silhouette narrows with intention, nothing wasted.',
-    image: '/images/tapered-trousers.jpg',
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
-  },
-  {
-    id: 'drape-shirt',
-    name: 'Drape Shirt',
-    price: 280000,
-    description:
-      'Fluid silk-cotton blend. Falls without trying. For those who understand that ease is earned.',
-    image: '/images/drape-shirt.jpg',
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
-  },
-  {
-    id: 'heavy-knit-vest',
-    name: 'Heavy Knit Vest',
-    price: 360000,
-    description:
-      'Hand-loomed chunky gauge. Weight you feel but never carry. Each stitch placed with calm deliberation.',
-    image: '/images/heavy-knit-vest.jpg',
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
-  },
-  {
-    id: 'wide-leg-trousers',
-    name: 'Wide Leg Trousers',
-    price: 460000,
-    description:
-      'Volume with restraint. A flowing silhouette grounded in structure. Moves like you mean it.',
-    image: '/images/wide-leg-trousers.jpg',
-    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+      'Precision-tailored. The silhouette commands attention with intention, nothing wasted.',
+    images: [
+      '/images/event-black-1.jpg',
+      '/images/event-black-2.jpg',
+      '/images/event-black-3.jpg',
+    ],
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
   },
 ]
 

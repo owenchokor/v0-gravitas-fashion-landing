@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { X } from 'lucide-react'
+import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import type { Product } from '@/lib/products'
 import { formatPrice } from '@/lib/products'
 import { useCart } from '@/lib/cart-context'
@@ -21,6 +21,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
   const [selectedSize, setSelectedSize] = useState<string | null>(null)
   const [sizeError, setSizeError] = useState(false)
   const [added, setAdded] = useState(false)
+  const [modalImage, setModalImage] = useState(0)
   const { addItem, setIsCartOpen } = useCart()
 
   const handleAddToCart = () => {
@@ -43,6 +44,7 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
     setSelectedSize(null)
     setSizeError(false)
     setAdded(false)
+    setModalImage(0)
     onClose()
   }
 
@@ -56,14 +58,57 @@ export function ProductModal({ product, onClose }: ProductModalProps) {
       >
         <DialogTitle className="sr-only">{product.name}</DialogTitle>
         <div className="grid md:grid-cols-2">
-          <div className="relative aspect-square bg-secondary md:aspect-auto md:min-h-[480px]">
-            <Image
-              src={product.image}
-              alt={product.name}
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+          <div className="group/modal relative aspect-square bg-secondary md:aspect-auto md:min-h-[480px]">
+            {product.images.map((img, i) => (
+              <Image
+                key={img}
+                src={img}
+                alt={`${product.name} - image ${i + 1}`}
+                fill
+                className={`object-cover transition-opacity duration-500 ${
+                  i === modalImage ? 'opacity-100' : 'opacity-0'
+                }`}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            ))}
+            {product.images.length > 1 && (
+              <>
+                <button
+                  onClick={() =>
+                    setModalImage((prev) =>
+                      prev === 0 ? product.images.length - 1 : prev - 1
+                    )
+                  }
+                  className="absolute left-3 top-1/2 -translate-y-1/2 flex size-8 items-center justify-center bg-background/80 text-foreground opacity-0 transition-opacity duration-300 group-hover/modal:opacity-100"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="size-4" strokeWidth={1.5} />
+                </button>
+                <button
+                  onClick={() =>
+                    setModalImage((prev) => (prev + 1) % product.images.length)
+                  }
+                  className="absolute right-3 top-1/2 -translate-y-1/2 flex size-8 items-center justify-center bg-background/80 text-foreground opacity-0 transition-opacity duration-300 group-hover/modal:opacity-100"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="size-4" strokeWidth={1.5} />
+                </button>
+                <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
+                  {product.images.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setModalImage(i)}
+                      className={`h-0.5 transition-all duration-300 ${
+                        i === modalImage
+                          ? 'w-5 bg-foreground'
+                          : 'w-2.5 bg-foreground/30'
+                      }`}
+                      aria-label={`View image ${i + 1}`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
           </div>
           <div className="flex flex-col justify-between p-8 md:p-10">
             <div>

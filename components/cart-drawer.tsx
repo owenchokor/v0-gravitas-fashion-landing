@@ -54,7 +54,7 @@ export function CartDrawer() {
                   >
                     <div className="relative h-24 w-20 shrink-0 overflow-hidden bg-secondary">
                       <Image
-                        src={item.product.image}
+                        src={item.product.images[0]}
                         alt={item.product.name}
                         fill
                         className="object-cover"
