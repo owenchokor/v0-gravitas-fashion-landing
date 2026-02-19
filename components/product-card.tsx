@@ -85,13 +85,13 @@ export function ProductCard({ product, onQuickAdd }: ProductCardProps) {
         </div>
 
         {/* Quick Add overlay */}
-        <div className="absolute inset-0 flex items-end justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+        <div className="absolute inset-0 flex items-end justify-center opacity-0 transition-opacity duration-500 group-hover:opacity-100 pointer-events-none">
           <button
             onClick={(e) => {
               e.stopPropagation()
               onQuickAdd(product)
             }}
-            className="mb-10 border border-foreground bg-foreground px-6 py-2.5 text-xs tracking-[0.15em] uppercase text-primary-foreground transition-all duration-300 hover:bg-transparent hover:text-foreground"
+            className="mb-10 border border-foreground bg-foreground px-6 py-2.5 text-xs tracking-[0.15em] uppercase text-primary-foreground transition-all duration-300 hover:bg-transparent hover:text-foreground pointer-events-auto"
           >
             Quick Add
           </button>
