@@ -14,21 +14,17 @@ export function Philosophy() {
           className="object-contain"
           sizes="(max-width: 768px) 192px, (max-width: 1024px) 256px, 288px"
         />
-      </div>
       <div className="mt-12 max-w-md space-y-4">
-        <p className="text-sm leading-relaxed tracking-wide text-[#C4B9A8]">
+        <p className="font-serif text-sm leading-relaxed tracking-wide text-[#C4B9A8]">
           We build clothes for people who don't need to announce themselves.
         </p>
-        <p className="text-sm leading-relaxed tracking-wide text-[#C4B9A8]">
-          Gravitas is a study in restraint — architectural silhouettes, considered fabrics, nothing wasted.
-        </p>
-        <p className="text-sm leading-relaxed tracking-wide text-[#C4B9A8]">
+        <p className="font-serif text-sm leading-relaxed tracking-wide text-[#C4B9A8]">
           We believe style is not what you add, but what you refuse.
         </p>
-        <p className="text-sm leading-relaxed tracking-wide text-[#C4B9A8]">
+        <p className="font-serif text-sm leading-relaxed tracking-wide text-[#C4B9A8]">
           Each piece is designed to outlast trends, occasions, and noise.
         </p>
-        <p className="mt-6 text-sm tracking-[0.3em] uppercase text-[#F5F4F0]">
+        <p className="font-serif mt-6 text-sm tracking-[0.3em] uppercase text-[#F5F4F0]">
           Wear less. Mean more.
         </p>
       </div>
