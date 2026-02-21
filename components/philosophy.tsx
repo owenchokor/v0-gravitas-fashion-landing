@@ -1,5 +1,4 @@
 import Image from 'next/image'
-
 export function Philosophy() {
   return (
     <section
@@ -14,6 +13,7 @@ export function Philosophy() {
           className="object-contain"
           sizes="(max-width: 768px) 192px, (max-width: 1024px) 256px, 288px"
         />
+      </div>
       <div className="mt-12 max-w-md space-y-4">
         <p className="font-serif text-sm leading-relaxed tracking-wide text-[#C4B9A8]">
           We build clothes for people who don't need to announce themselves.
