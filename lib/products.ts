@@ -11,7 +11,7 @@ export const products: Product[] = [
   {
     id: 'gravity-grey',
     name: 'GRAVITY GREY.',
-    price: 150000,
+    price: 66700,
     description:
       'Architectural shoulders, clean lines. Constructed from Italian double-faced wool with a muted grey palette.',
     images: [
@@ -24,7 +24,7 @@ export const products: Product[] = [
   {
     id: 'orbit-ecru',
     name: 'ORBIT ECRU.',
-    price: 150000,
+    price: 66700,
     description:
       'Fluid linen-blend. Falls without trying. For those who understand that ease is earned.',
     images: [
@@ -37,7 +37,7 @@ export const products: Product[] = [
   {
     id: 'event-black',
     name: 'EVENT BLACK.',
-    price: 150000,
+    price: 66700,
     description:
       'Precision-tailored. The silhouette commands attention with intention, nothing wasted.',
     images: [
